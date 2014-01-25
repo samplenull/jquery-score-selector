@@ -16,7 +16,7 @@
         document = window.document,
         defaults = {
             value: 0,
-            max: 4,
+            max: 10,
             readonly: null,
             containerElement: '<div class="ss-container"></div>',
             showScoreNumber: true
@@ -40,6 +40,7 @@
         if (!el.is('input')) {
             throw Error('ScoreSelector must be attached to input field');
         }
+        el.hide();
         if (el.val()) {
             opt.value = el.val();
             if (opt.readonly !== false) {
@@ -47,7 +48,6 @@
             }
 
         }
-
         cont = $(this.options.containerElement);
         var pointsHtml = '';
         for (var i = 1; i <= opt.max; ++i) {
